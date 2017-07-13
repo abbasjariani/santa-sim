@@ -41,7 +41,9 @@ public class SimpleRouletteWheelSelector implements Selector {
         double totalFitness = cumulativeFitness[populationSize-1];
 
         if (totalFitness == 0.0) {
-            throw new RuntimeException("Population crashed! No viable children.");
+//            throw new RuntimeException("Population crashed! No viable children.");
+//Abbas 2017.07.13: The above line causes program to mysteriously crash when initating the population with sequences from a fasta file. I replace the Exception with a warning
+	    System.out.println("Population crashed! No viable children.");
         }
 
         for (int i = 0; i < populationSize; i++) {
