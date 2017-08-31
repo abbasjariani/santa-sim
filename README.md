@@ -19,7 +19,7 @@ java -jar /path/to/santa.jar /path/to/simulation_config.xml
 
 All properties of a simulation, including definition of the initial
 population, fitness functions, replication and mutation operators, and
-sampling schema, is defined in the input XML file. Consult the wiki page of SANTA to understand the variables in this file and how to work with them.
+sampling schema, is defined in the input XML file. Consult the wiki page of SANTA to understand the variables in this file and how to work with them. Looking at the example input XML files provided in the folder 'examples/' would help you understand the logic easier.
 
 ### Command-line options
 
@@ -30,6 +30,42 @@ example to bind the value '10000' to parameter 'generations':
 java -jar path/to/santa.jar -generations=10000 path/to/simulation_config.xml
 ```
 
+## Build instructions
+
+### Install Java 8
+
+You must have Java 8 installed in order to build or run
+SANTA. On Linux, you can install the latest [JRE 8 from Oracle](https://www.java.com/en/download/help/linux_x64_install.xml) or the
+latest [OpenJDK](http://openjdk.java.net/install/).  Under MacOS you can install the official [JRE 8 from Oracle](https://www.java.com/en/download/help/mac_install.xml), but I would reccomend installing Java via
+[Homebrew](http://brew.sh/).  We have not tested SANTA on Windows recently, but it
+should work.  Start by installing the latest [JRE 8 for Windows from Oracle](https://www.java.com/en/download/help/windows_manual_download.xml).
+
+### Install Ant
+
+You will also need to install Apache Ant 1.8 or later to build SANTA.
+If you do not have ant on your machine you should follow the
+instructions at:
+
+http://ant.apache.org/manual/install.html
+
+### Clone the source repository from Github.
+
+On the command line, enter:
+```
+git clone --depth 1 https://github.com/santa-dev/santa-sim.git
+```
+
+### Building SANTA
+
+When building for the first time, you'll need to have an internet connection, because additional files need to be downloaded.
+
+Change to the directory where you cloned SANTA, and type:
+
+```
+ant dist
+```
+
+A directory called dist will be created which contains the file `santa.jar`
 
 
 ## SANTA Overview
