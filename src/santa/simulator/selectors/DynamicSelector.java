@@ -25,8 +25,11 @@ public class DynamicSelector implements Selector {
 		for(int i = 0; i < currentGeneration.size(); ++i) {
 			//for loop over all the individuals in the current generation
 			double fitness = currentGeneration.get(i).getFitness();
+			//fitness of current individual in the current generation is calculated
 			expectedProgenyCount =  Math.max(fitness * (1 + growthRate*(1-selectedParents.size()/carryingPopulation)),Double.MIN_VALUE);
+			
 			long nbChildren = fitness == 0 ? 0 : Random.nextPoisson(expectedProgenyCount);
+			//fitness == 0 -> nbChildren =0, otherwise random variable with the calculated expected value
 			for(long n = 0; n < nbChildren * nbOfParents; ++n) {
 				selectedParents.add(i);				
 			}			
