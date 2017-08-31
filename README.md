@@ -7,16 +7,33 @@ mutation, fitness and selection
 
 [![wercker status](https://app.wercker.com/status/0fa06c11d47c043962dfb79cbe7a9c45/s/ "wercker status")](https://app.wercker.com/project/byKey/0fa06c11d47c043962dfb79cbe7a9c45)
 
-# Usage
+## Usage
 
 You need to have java 8 installed in order to use SANTA. A pre-built jar executable file is located in the folder 'dist'. The parameters defining the simulation are introduced in a simulation xml file. Examples of such files are in the folder 'examples'. 
 
+In order to invoke the software run the following command
 ```{r, engine='bash', invoke santa}
-java -jar santa.jar small.xml
+java -jar /path/to/santa.jar /path/to/simulation_config.xml
+```
+### Simulation configuration XML File
+
+All properties of a simulation, including definition of the initial
+population, fitness functions, replication and mutation operators, and
+sampling schema, is defined in the input XML file. Consult the wiki page of SANTA to understand the variables in this file and how to work with them.
+
+### Command-line options
+
+You can bind values to parameters used in your config file. For
+example to bind the value '10000' to parameter 'generations':
+
+```
+java -jar path/to/santa.jar -generations=10000 path/to/simulation_config.xml
 ```
 
-# SANTA Overview
-## Population, individuals and genomes ##
+
+
+## SANTA Overview
+### Population, individuals and genomes
 
 The population in SANTA consists of individual organisms each of which
 contains a genome. The genome is a linear sequence of nucleotides but
@@ -28,7 +45,7 @@ simulates only haploid populations and is ideal for simulating simple
 microorganisms such as viruses and bacteria and eukaryote organelles
 such as mitochondria.
 
-## Evolutionary process ##
+### Evolutionary process
 
 The evolutionary process in SANTA is divided into a sequence of
 discrete components. Different processes can be selected for each of
@@ -37,7 +54,7 @@ modelled. The simulation begins with an initial population of
 individuals with a specified or random genome sequence. Evolution then
 proceeds as follows:
 
-### Fitness calculation ###
+### Fitness calculation
 
 The fitness of each genome is calculated using one or more fitness
 functions. These functions define the relative fitness of each
@@ -56,7 +73,7 @@ Furthermore, different partitions of the genome can be given entirely
 different fitness functions (e.g., most sites under purifying
 selection but with a few sites under diversifying selection).
 
-### Selection ###
+### Selection
 
 The next generation of individuals then selects their parents from the
 previous generation. This is done using a ‘roulette wheel’ selector
@@ -65,7 +82,7 @@ proportional to their genome’s fitness.  The number of parents that
 are selected for each new individual depends on the mode of
 replication, below.
 
-### Replication ###
+### Replication
 
 Together with the mutation component, below, the replication component
 is analogous to the actions of a polymerase complex and produces the
@@ -77,7 +94,7 @@ parents are selected and a probability is defined of the polymerase
 switching between the parents’ templates as replication proceeds along
 the genome.
 
-### Mutation ###
+### Mutation
 
 Although mutation also models the action of the polymerase, it is done
 as an independent process after replication. The user specifies a
@@ -100,7 +117,7 @@ may grow or shrink, or even become fragmented.  As with
 substitution mutations, indels will affect subsequent generations of
 the lineage but will not affect sibling lineages.
 
-### Sampling and statistics ###
+### Sampling and statistics
 
 At predefined time-points or intervals, SANTA can be asked to report
 statistics about the current population, including average fitness,
@@ -112,7 +129,7 @@ genealogy of the entire population and then provide the tree of the
 individuals sampled. This option has significant implications in terms
 of efficiency and memory requirements.
 
-## Implementation details ##
+## Implementation details
 
 We have implemented a forwards-time discrete-generation gene sequence
 simulator designed to scale to large population sizes and
@@ -137,7 +154,7 @@ Samples of the population can be taken at specific times during the
 course of the simulation or at regular intervals. Sequences can be
 stored as FASTA or NEXUS format alignments.
 
-## Future developments ##
+## Future developments
 
 SANTA is an open-source project hosted on a public source-code
 repository. It is written in an extremely modular way and we envisage
