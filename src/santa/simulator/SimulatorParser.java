@@ -285,7 +285,6 @@ public class SimulatorParser {
 		return simulator;
 	}
 
-	//Default populationType is dynamicPopulation but in the xml file static population could be selected
 	Simulation parseSimulation(Element element) throws ParseException {
 
 		Simulation.InoculumType inoculumType = Simulation.InoculumType.NONE;
