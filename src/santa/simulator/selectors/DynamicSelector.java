@@ -23,6 +23,7 @@ public class DynamicSelector implements Selector {
 	double expectedProgenyCount;
 	public void selectParents(List<Virus> currentGeneration, List<Integer> selectedParents, int nbOfParents) {
 		for(int i = 0; i < currentGeneration.size(); ++i) {
+			//for loop over all the individuals in the current generation
 			double fitness = currentGeneration.get(i).getFitness();
 			expectedProgenyCount =  Math.max(fitness * (1 + growthRate*(1-selectedParents.size()/carryingPopulation)),Double.MIN_VALUE);
 			long nbChildren = fitness == 0 ? 0 : Random.nextPoisson(expectedProgenyCount);
