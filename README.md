@@ -19,7 +19,7 @@ java -jar /path/to/santa.jar /path/to/simulation_config.xml
 
 All properties of a simulation, including definition of the initial
 population, fitness functions, replication and mutation operators, and
-sampling schema, is defined in the input XML file. Consult [the wiki page of SANTA](https://github.com/santa-dev/santa-sim/wiki/Documentation) to understand the variables in this file and how to work with them. Looking at the example input XML files provided in the folder 'examples/' would help you understand the logic easier.
+sampling schema, is defined in the input XML file. Consult [the wiki page of SANTA](https://github.com/abbasjariani/santa-sim/wiki) to understand the variables in this file and how to work with them. Looking at the example input XML files provided in the folder 'examples/' would help you understand the logic easier.
 
 ### Command-line options
 
