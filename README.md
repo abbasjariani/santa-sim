@@ -7,7 +7,15 @@ mutation, fitness and selection
 
 [![wercker status](https://app.wercker.com/status/0fa06c11d47c043962dfb79cbe7a9c45/s/ "wercker status")](https://app.wercker.com/project/byKey/0fa06c11d47c043962dfb79cbe7a9c45)
 
-# SANTA Overview #
+# Usage
+
+You need to have java 8 installed in order to use SANTA. A pre-built jar executable file is located in the folder 'dist'. The parameters defining the simulation are introduced in a simulation xml file. Examples of such files are in the folder 'examples'. 
+
+```{r, engine='bash', invoke santa}
+java -jar santa.jar small.xml
+```
+
+# SANTA Overview
 ## Population, individuals and genomes ##
 
 The population in SANTA consists of individual organisms each of which
