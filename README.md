@@ -67,6 +67,9 @@ ant dist
 
 A directory called dist will be created which contains the file `santa.jar`
 
+## Performance measures
+
+[This page](https://cswarth.github.io/santa-perf/) could be consulted to see the memory and time consumption for different population sizes and generations. The details of these simulations could be found [here](https://github.com/cswarth/santa-perf). 
 
 ## SANTA Overview
 ### Population, individuals and genomes
